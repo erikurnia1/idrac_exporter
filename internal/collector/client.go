@@ -25,6 +25,7 @@ const (
 	INSPUR
 	H3C
 	INVENTEC
+	Manufacturer = "Dell Technologies"
 )
 
 type Client struct {
@@ -113,7 +114,8 @@ func (client *Client) findAllEndpoints() error {
 	client.powerPath = chassis.Power.OdataId
 
 	// Vendor
-	m := strings.ToLower(system.Manufacturer)
+	// m := strings.ToLower(system.Manufacturer)
+	m := strings.ToLower(Manufacturer)
 	if strings.Contains(m, "dell") {
 		client.vendor = DELL
 	} else if strings.Contains(m, "hpe") {
